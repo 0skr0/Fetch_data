@@ -4,14 +4,14 @@ import json
 options = ['Exit', 'Get all dead characters', 'Get characters by their name and living status']
 print('Welcome to Rick & Morty API')
 while True:
-    print('You have to following options')
+    print('You have the following options')
     for i in range(len(options)):
         print(str(i)+')', options[i])
     selection = int(input('Enter your selection: '))
     print('\n', end='')
     tag = ['ID', 'name', 'type', 'species', 'origin', 'status']
     if selection == 1:
-        url = 'https://rickandmortyapi.com/api/character/?status=dead'
+        url = 'https://rickandmortyapi.com/api/character?status=dead'
         body = json.load(urlopen(url))
         max_pages = body['info']['pages']
         total = 0
@@ -44,7 +44,7 @@ while True:
         print('\n', end='')
         status = str(input('Enter living status (alive, dead, unknown): '))
         print('\n', end='')
-        url = f'https://rickandmortyapi.com/api/character/?name={name}&status={status}'
+        url = f'https://rickandmortyapi.com/api/character?name={name}&status={status}'
         body = json.load(urlopen(url))
         max_pages = body['info']['pages']
         limit_page = int(input('Enter limit of pages: '))

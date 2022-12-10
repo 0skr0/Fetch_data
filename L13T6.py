@@ -27,7 +27,7 @@ while True:
         years = str(launches_success[i]['date_utc']).split('-')
         if int(years[0]) == search:
             launches_search.append(launches_success[i])
-    print('We have', len(launches_search), 'launch to choose from.')
+    print('We have', len(launches_search), 'launches to choose from.')
     for i in range(len(launches_search) + 1):
         if i < 1:
             print(str(i - 1) + ')', 'Exit')
@@ -58,9 +58,9 @@ while True:
             url_crews = f'https://api.spacexdata.com/v4/crew/{crews[i]["crew"]}'
             body = json.load(urlopen(url_crews))
             print('  Crew member', i+1)
-            print(' ', crews[i]['role'], body['name'])
-            print('  Agency:'+body['agency'])
-            print('  Wikipedia page:', body['wikipedia'])
+            print(' ', crews[i]['role'], str(body['name']))
+            print('  Agency:' + str(body['agency']))
+            print('  Wikipedia page:', str(body['wikipedia']))
             print('')
     else:
         break
